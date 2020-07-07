@@ -3,7 +3,7 @@ let generateBtn = document.querySelector("#generate");
 const randomFunc = {
   upper: getRandomUpper,
   lower: getRandomLower,
-  num: getRandomNumber,
+  number: getRandomNumber,
   specialCharacter: getRandomCharacter,
 };
 
@@ -24,13 +24,13 @@ function getRandomCharacter() {
   return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
 }
 
-function generatePassword(length, upper, lower, num, c) {
+function generatePassword(length, upper, lower, number, specialCharacter) {
   let pw = "";
 
   // true = 1 , false = 0
-  const typeCounter = upper + lower + num + c;
+  const typeCounter = upper + lower + number + specialCharacter;
 
-  const typeArr = [{ upper }, { lower }, { num }, { c }].filter(
+  const typeArr = [{ upper }, { lower }, { number }, { specialCharacter }].filter(
     (item) => Object.values(item)[0]
   );
 
@@ -47,7 +47,8 @@ function generatePassword(length, upper, lower, num, c) {
     });
   }
   const newPw = pw.slice(0, length);
-    return newPw;
+  
+  return newPw;
 }
 
 // Password Setup
@@ -78,8 +79,8 @@ function writePassword() {
 
   let password = generatePassword(
     length,
-    isLowerCase,
     isUpperCase,
+    isLowerCase,
     isNumeric,
     isSpecialCha
   );
