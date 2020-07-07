@@ -11,15 +11,12 @@ const randomFunc = {
 function getRandomUpper() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
-
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
-
 function getRandomNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
-
 function getRandomCharacter() {
   return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
 }
@@ -27,7 +24,6 @@ function getRandomCharacter() {
 function generatePassword(length, upper, lower, number, specialCharacter) {
   let pw = "";
 
-  // true = 1 , false = 0
   const typeCounter = upper + lower + number + specialCharacter;
 
   const typeArr = [{ upper }, { lower }, { number }, { specialCharacter }].filter(
@@ -36,7 +32,7 @@ function generatePassword(length, upper, lower, number, specialCharacter) {
 
   // if they only press false 
   if (typeCounter === 0) {
-    return "No Characters Added!";
+    return "Can't Generate. Try Again";
   }
 
 
